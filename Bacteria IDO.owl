@@ -12,7 +12,7 @@
      xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#">
     <owl:Ontology rdf:about="http://purl.obolibrary.org/obo/bido.owl">
-        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/bido/2021-1-16/bido.owl"/>
+        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/bido/2021-6-1/bido.owl"/>
         <protege:defaultLanguage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">en</protege:defaultLanguage>
         <dc:creator>Shane Babcock</dc:creator>
         <rdfs:comment>The Bacteria Infectious Disease Ontology (BIDO) is an extension of IDO that will serve as a reference ontology concerning bacterial pathogens. In turn it will serve as a hub for IDO extensions concerning specific bacterial infectious diseases. It mirrors the Virus Infectious Disease Ontology in that respect.
@@ -2699,10 +2699,12 @@ The range of this relation is a microbe (a bacterium, a virus, a fungus, and a p
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IDO_0000504"/>
-        <obo:IAO_0000115>Infectious disorder that exists as a result of process of formation of disorder initiated by bacteria.</obo:IAO_0000115>
+        <obo:IAO_0000115>Infectious disorder that has some bacteria as part, that exists as a result of a process of formation of disorder initiated by the bacteria.</obo:IAO_0000115>
         <obo:IAO_0000116>Note that this class does not include all disorders caused by bacterial pathogens. For instance, the disorder that is caused to an organism by c. botulinum toxins is not an infectious disorder.
 
-Might there be any motivation for relabeling this class as &apos;bacterial infectious disorder&apos;, and then introducing a separate class (as a direct child of &apos;disorder&apos;) with the original label that includes non-infectious disorders caused by bacteria?</obo:IAO_0000116>
+Is there any motivation for also introducing a separate class (as a direct child of &apos;disorder&apos;) with the label &apos;bacterial disorder&apos; that includes non-infectious disorders caused by bacteria? 
+
+I am not sure. Take the case of disorder caused by bacteria that do not localize? The disorder does not have bacteria as part. Is the fact that the toxins were produced by bacteria sufficient to make it a bacterial disorder? Concievably, the same disorder could have originated from the same toxins, but injected into the organism in a lab.</obo:IAO_0000116>
         <obo:IAO_0000117>Shane Babcock</obo:IAO_0000117>
         <rdfs:label>bacterial infectious disorder</rdfs:label>
     </owl:Class>
@@ -3042,7 +3044,11 @@ Might there be any motivation for relabeling this class as &apos;bacterial infec
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BIDO_0000762"/>
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BIDO_0000765"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OMP_0000087"/>
+                    </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
                         <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/PATO_0001456"/>
@@ -3068,7 +3074,7 @@ Might there be any motivation for relabeling this class as &apos;bacterial infec
         <obo:IAO_0000112>Escherichia coli</obo:IAO_0000112>
         <obo:IAO_0000112>Salmonella</obo:IAO_0000112>
         <obo:IAO_0000112>Staphylococcus</obo:IAO_0000112>
-        <obo:IAO_0000115>Aerobic bacteria that uses aerobic respiration in the presence of oxygen, but is also capable of anaerobic methods of energy production.</obo:IAO_0000115>
+        <obo:IAO_0000115>Anaerobic bacteria that is capable of anaerobic methods of energy production but uses aerobic respiration in the presence of oxygen.</obo:IAO_0000115>
         <obo:IAO_0000116>Note regarding the OWL definition, which may at first glance appear counterintuitive. Only PATO:anaerobic, and not PATO:aerobic, is included because although facultative anaerobe baceteria are capable of aerobic respiration, they do not depend upon it. Keep in mind that PATO:aerobic is defined as an organism&apos;s dependence upon oxygen. Thus aerobic organisms are only defined as being capable of aerobic respiration--and so they do not bear PATO:aerobic.</obo:IAO_0000116>
         <obo:IAO_0000116>This is an inferred subclass of anaerobic bacteria. That said, I am actually not sure whether facultative anaerobe bacteria should be primarily classified under aerobic bacteria or under anaerobic bacteria.</obo:IAO_0000116>
         <obo:IAO_0000117>Shane Babcock</obo:IAO_0000117>
@@ -3145,7 +3151,7 @@ Might there be any motivation for relabeling this class as &apos;bacterial infec
         <obo:IAO_0000112>Actinomyces</obo:IAO_0000112>
         <obo:IAO_0000112>Bacteroides</obo:IAO_0000112>
         <obo:IAO_0000112>Clostridium</obo:IAO_0000112>
-        <obo:IAO_0000115>Anaerobic bacteria that are harmed by the presence of oxygen and which only use anaerobic methods of energy production.</obo:IAO_0000115>
+        <obo:IAO_0000115>Anaerobic bacteria that only use anaerobic methods of energy production and are harmed by the presence of oxygen.</obo:IAO_0000115>
         <obo:IAO_0000117>Shane Babcock</obo:IAO_0000117>
         <rdfs:label>obligate anaerobe bacteria</rdfs:label>
     </owl:Class>
@@ -3297,7 +3303,7 @@ Might there be any motivation for relabeling this class as &apos;bacterial infec
             </owl:Class>
         </owl:equivalentClass>
         <obo:IAO_0000112>Cutibacterium acnes</obo:IAO_0000112>
-        <obo:IAO_0000115>Anaerobic bacteria that is unharmed by the presence of oxygen, and which only uses fermentation for energy production.</obo:IAO_0000115>
+        <obo:IAO_0000115>Anaerobic bacteria that only use fermentation for energy production but are unharmed by the presence of oxygen.</obo:IAO_0000115>
         <obo:IAO_0000117>Shane Babcock</obo:IAO_0000117>
         <rdfs:label>aerotolerant anaerobe bacteria</rdfs:label>
     </owl:Class>
@@ -3310,22 +3316,7 @@ Might there be any motivation for relabeling this class as &apos;bacterial infec
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BIDO_0000762"/>
-                    <owl:Class>
-                        <owl:complementOf>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002215"/>
-                                <owl:someValuesFrom>
-                                    <owl:Class>
-                                        <owl:unionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/GO_0006113"/>
-                                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/GO_0009061"/>
-                                        </owl:unionOf>
-                                    </owl:Class>
-                                </owl:someValuesFrom>
-                            </owl:Restriction>
-                        </owl:complementOf>
-                    </owl:Class>
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BIDO_0000763"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
                         <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OMP_0000171"/>
@@ -3339,8 +3330,9 @@ Might there be any motivation for relabeling this class as &apos;bacterial infec
         </owl:equivalentClass>
         <obo:IAO_0000112>Campylobacter</obo:IAO_0000112>
         <obo:IAO_0000112>Helicobacter pylori</obo:IAO_0000112>
-        <obo:IAO_0000115>Aerobic bacteria which require oxygen for energy production, but which are harmed atmospheric concentrations of oxygen (21% O2).</obo:IAO_0000115>
+        <obo:IAO_0000115>Obligate aerobic bacteria which require oxygen for energy production but are harmed in atmospheric concentrations of oxygen (21% O2).</obo:IAO_0000115>
         <obo:IAO_0000117>Shane Babcock</obo:IAO_0000117>
+        <rdfs:comment>Since they are harmed by it, microaerophile bacteria require oxygen levels lower than that which are present in the atmosphere in order to grow.</rdfs:comment>
         <rdfs:label>microaerophile bacteria</rdfs:label>
     </owl:Class>
     
@@ -3452,7 +3444,7 @@ Might there be any motivation for relabeling this class as &apos;bacterial infec
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <obo:IAO_0000115>Process by which a bacterial infectious disorder comes into existence.</obo:IAO_0000115>
+        <obo:IAO_0000115>Apperance of disorder by which a bacterial infectious disorder comes into existence.</obo:IAO_0000115>
         <obo:IAO_0000117>Shane Babcock</obo:IAO_0000117>
         <rdfs:label>appearance of bacterial infectious disorder</rdfs:label>
     </owl:Class>
@@ -3483,14 +3475,16 @@ Might there be any motivation for relabeling this class as &apos;bacterial infec
     <!-- http://purl.obolibrary.org/obo/BIDO_0000779 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/BIDO_0000779">
-        <rdfs:subClassOf rdf:resource="http://www.informatics.jax.org/vocab/gene_ontology/GO:0009405"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/GO_0009405"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
                 <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/IDO_0000626"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000428"/>
         <obo:IAO_0000115>Pathogenesis process realization of a pathogenic disposition inhering in some bacteria or bacteria population, having at least the proper process part: appearance of disorder.</obo:IAO_0000115>
+        <obo:IAO_0000116>We cannot assert that this class has &apos;establishment of localization in host&apos;, nor &apos;process of establishing an infection&apos;, as parts. That would exclude disease caused by toxins, produced by bacteria that never localize in the diseased organism.</obo:IAO_0000116>
         <obo:IAO_0000117>Shane Babcock</obo:IAO_0000117>
         <rdfs:label>bacterial pathogenesis</rdfs:label>
     </owl:Class>
@@ -3506,21 +3500,21 @@ Might there be any motivation for relabeling this class as &apos;bacterial infec
                     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BIDO_0000779"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/BIDO_0000777"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
                         <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/BIDO_0000778"/>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
                         <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/IDO_0000625"/>
                     </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/IDO_0000626"/>
-                    </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
         <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000428"/>
-        <obo:IAO_0000115>Bacterial pathogenesis having at least the proper process parts: (1) establishment of localization in host, (2) process of establishing a bacterial infection, and (3) appearance of disorder.</obo:IAO_0000115>
+        <obo:IAO_0000115>Bacterial pathogenesis having at least the proper process parts: (1) establishment of localization in host, (2) process of establishing a bacterial infection, and (3) appearance of bacterial infectious disorder.</obo:IAO_0000115>
         <oboInOwl:term_editor>Shane Babcock</oboInOwl:term_editor>
         <rdfs:comment>Note that this class and its sibling &apos;bacterial pathogenesis involving toxin production&apos; are not disjoint. The pathogenesis processes associated with many bacteria are instances of both. By contrast, the bacterial pathogenesis process associated with mycobacterium tuberculosis is an example of bacterial pathogenesis that involves infection, but not toxin production.</rdfs:comment>
         <rdfs:comment>Some instances of this class may also have an instance of &apos;pathogen transmission process&apos; as a part. But we cannot assert that &apos;bacterial pathogenesis involving an infection&apos; has &apos;pathogen transmission process&apos; as a process part. This would exclude bacterial pathogenesis involving infections caused by opportunistic pathogens, in which bacteria already established in a site in or on the host (e.g. bacteria colonizing the skin surface) are able to establish localization in a new site within that same host wherein they are able to realize their infectious disposition (e.g. when bacteria on the skin enter the host through a wound).</rdfs:comment>
@@ -3616,6 +3610,37 @@ Might there be any motivation for relabeling this class as &apos;bacterial infec
     
 
 
+    <!-- http://purl.obolibrary.org/obo/BIDO_0000788 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BIDO_0000788">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/IDO_0000437"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CHEBI_23367"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_2"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115>Symbiont adhesion disposition borne by a macromolecule part of some bacteria that is the disposition to participate in the adherence of the bacteria to a host.</obo:IAO_0000115>
+        <obo:IAO_0000117>Shane Babcock</obo:IAO_0000117>
+        <rdfs:label>bacterial adhesion disposition</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/BIDO_0000800 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/BIDO_0000800">
@@ -3653,12 +3678,39 @@ Might there be any motivation for relabeling this class as &apos;bacterial infec
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
                         <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_2"/>
                     </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000091"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/BIDO_0000788"/>
+                    </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
         <obo:IAO_0000115>Adhesion factor that is part of some bacteria.</obo:IAO_0000115>
         <obo:IAO_0000117>Shane Babcock</obo:IAO_0000117>
         <rdfs:label>bacterial adhesion factor</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BIDO_0000802 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BIDO_0000802">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OGMS_0000045"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/IDO_0000549"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000428"/>
+        <obo:IAO_0000115>Disorder the formation of which involves some bacterial toxin.</obo:IAO_0000115>
+        <obo:IAO_0000116>The idea is that this class will serve as a parent for any disorder involving bacterial toxins, including those that do not involve infection by the relevant toxin-producing bacteria. Thus, food botulism would have as its material basis a bacterial toxin disorder that is NOT a bacterial infectious disorder since the bacteria itself need not ever localize in the host.
+
+Of course, other bacterial toxin disorders are also infectious disorders. That is, cases where bacteria are infecting the host, and secreted toxins are a virulence factor aiding in the infection of the host by helping the bacteria bypass the innate and adaptive immune responses of the host. See https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5243249/
+
+I did at one point define this class as &quot;Disorder caused by some bacterial toxin.&quot; But I wanted to avoid the potential suggestion that the toxin is in all cases the primary causative factor. It is the primary causative factor in food botulism where the bacteria need never be present in the host. But in cases involving infection, the toxin has more of a supporting role.</obo:IAO_0000116>
+        <obo:IAO_0000117>Shane Babcock</obo:IAO_0000117>
+        <rdfs:label>bacterial toxin disorder</rdfs:label>
     </owl:Class>
     
 
@@ -3909,6 +3961,17 @@ Might there be any motivation for relabeling this class as &apos;bacterial infec
         <obo:IAO_0000412>http://purl.obolibrary.org/obo/chebi.owl</obo:IAO_0000412>
         <oboInOwl:hasRelatedSynonym>lipid A</oboInOwl:hasRelatedSynonym>
         <rdfs:label>lipid As</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CHEBI_25212 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CHEBI_25212">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CHEBI_52206"/>
+        <obo:IAO_0000115>Any intermediate or product resulting from metabolism. The term &apos;metabolite&apos; subsumes the classes commonly known as primary and secondary metabolites.</obo:IAO_0000115>
+        <obo:IAO_0000412>http://purl.obolibrary.org/obo/chebi.owl</obo:IAO_0000412>
+        <rdfs:label>metabolite</rdfs:label>
     </owl:Class>
     
 
@@ -4164,6 +4227,17 @@ Might there be any motivation for relabeling this class as &apos;bacterial infec
     
 
 
+    <!-- http://purl.obolibrary.org/obo/CHEBI_52206 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CHEBI_52206">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CHEBI_24432"/>
+        <obo:IAO_0000115>A biological role played by the molecular entity or part thereof within a biochemical context.</obo:IAO_0000115>
+        <obo:IAO_0000412>http://purl.obolibrary.org/obo/chebi.owl</obo:IAO_0000412>
+        <rdfs:label>biochemical role</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/CHEBI_61082 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CHEBI_61082">
@@ -4259,6 +4333,29 @@ Might there be any motivation for relabeling this class as &apos;bacterial infec
         <obo:IAO_0000115>A bacterial gene that can produce a gene product that is at least partially responsible for enabling a bacterium to be pathogenic</obo:IAO_0000115>
         <obo:IAO_0000412>http://purl.obolibrary.org/obo/chebi.owl</obo:IAO_0000412>
         <rdfs:label>bacterial virulence gene B</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CHEBI_75787 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CHEBI_75787">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CHEBI_25212"/>
+        <obo:IAO_0000115>Any metabolite produced during a metabolic reaction in prokaryotes, the taxon that include members of domains such as the bacteria and archaea.</obo:IAO_0000115>
+        <obo:IAO_0000412>http://purl.obolibrary.org/obo/chebi.owl</obo:IAO_0000412>
+        <oboInOwl:hasRelatedSynonym>prokaryotic metabolites</oboInOwl:hasRelatedSynonym>
+        <rdfs:label>prokaryotic metabolite</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CHEBI_76969 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CHEBI_76969">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CHEBI_75787"/>
+        <obo:IAO_0000115>Any prokaryotic metabolite produced during a metabolic reaction in bacteria.</obo:IAO_0000115>
+        <obo:IAO_0000115>http://purl.obolibrary.org/obo/chebi.owl</obo:IAO_0000115>
+        <rdfs:label>bacterial metabolite</rdfs:label>
     </owl:Class>
     
 
@@ -4577,6 +4674,16 @@ Might there be any motivation for relabeling this class as &apos;bacterial infec
     
 
 
+    <!-- http://purl.obolibrary.org/obo/CL_0000520 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CL_0000520">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CL_0000003"/>
+        <obo:IAO_0000412>http://purl.obolibrary.org/obo/cl.owl</obo:IAO_0000412>
+        <rdfs:label>prokaryotic cell</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/CL_0000542 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CL_0000542">
@@ -4584,6 +4691,18 @@ Might there be any motivation for relabeling this class as &apos;bacterial infec
         <obo:IAO_0000115>A lymphocyte is a leukocyte commonly found in the blood and lymph that has the characteristics of a large nucleus, a neutral staining cytoplasm, and prominent heterochromatin.</obo:IAO_0000115>
         <obo:IAO_0000412>http://purl.obolibrary.org/obo/cl.owl</obo:IAO_0000412>
         <rdfs:label>lymphocyte</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CL_0000563 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CL_0000563">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CL_0000520"/>
+        <obo:IAO_0000115>A rounded, inactive form that certain bacteria assume under conditions of extreme temperature, dryness, or lack of food. The bacterium develops a waterproof cell wall that protects it from being dried out or damaged. [database_cross_reference: GOC:tfm][database_cross_reference: ISBN:0618947256]</obo:IAO_0000115>
+        <obo:IAO_0000118>bacterial spore</obo:IAO_0000118>
+        <obo:IAO_0000412>http://purl.obolibrary.org/obo/cl.owl</obo:IAO_0000412>
+        <rdfs:label>endospore</rdfs:label>
     </owl:Class>
     
 
@@ -5645,18 +5764,6 @@ Might there be any motivation for relabeling this class as &apos;bacterial infec
         <obo:IAO_0000412>http://purl.obolibrary.org/obo/ero.owl</obo:IAO_0000412>
         <oboInOwl:term_editor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">John Beverley</oboInOwl:term_editor>
         <rdfs:label xml:lang="en">intervention</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/FBdv_00005259 -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/FBdv_00005259">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
-        <obo:IAO_0000115>Temporal subdivision of a developmental process.</obo:IAO_0000115>
-        <obo:IAO_0000117>John Beverley</obo:IAO_0000117>
-        <obo:IAO_0000412>http://purl.obolibrary.org/obo/fbdv.owl</obo:IAO_0000412>
-        <rdfs:label xml:lang="en">generative stage</rdfs:label>
     </owl:Class>
     
 
@@ -7152,12 +7259,6 @@ Might there be any motivation for relabeling this class as &apos;bacterial infec
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CHEBI_16412"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
                 <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OMP_0000189"/>
             </owl:Restriction>
@@ -7240,11 +7341,11 @@ Might there be any motivation for relabeling this class as &apos;bacterial infec
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000091"/>
-                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/IDO_0000425"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/BIDO_0000788"/>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000091"/>
-                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/IDO_0000437"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/IDO_0000425"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -7322,6 +7423,22 @@ Might there be any motivation for relabeling this class as &apos;bacterial infec
         <obo:IAO_0000412>http://purl.obolibrary.org/obo/go.owl</obo:IAO_0000412>
         <oboInOwl:hasExactSynonym>toxin metabolism</oboInOwl:hasExactSynonym>
         <rdfs:label>toxin metabolic process</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/GO_0009405 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/GO_0009405">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+        <obo:IAO_0000115>Process that generates the ability of a pathogen to induce disorder in an organism.</obo:IAO_0000115>
+        <obo:IAO_0000116>Process that is the realization of a pathogenic disposition inhering in an pathogen or pathogen population, which in the most common case has at least all of the following proper process parts: (1) pathogen transmission, (2) establishment of localization in host, (3) process of establishing an infection, and (4) appearance of disorder. 
+
+Pathogenesis does not involve all of (1)-(4) in every case. For instance, in the case of various bacterial pathogens, pathogenesis occurs without (1)-(3) via the secretion of toxins which subsequently cause disorder in some organism.</obo:IAO_0000116>
+        <obo:IAO_0000412>http://purl.obolibrary.org/obo/go.owl</obo:IAO_0000412>
+        <oboInOwl:term_editor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">John Beverley</oboInOwl:term_editor>
+        <oboInOwl:term_editor>Shane Babcock</oboInOwl:term_editor>
+        <rdfs:label xml:lang="en">pathogenesis</rdfs:label>
     </owl:Class>
     
 
@@ -7954,6 +8071,18 @@ Might there be any motivation for relabeling this class as &apos;bacterial infec
         <oboInOwl:hasExactSynonym>cell structure assembly</oboInOwl:hasExactSynonym>
         <oboInOwl:hasExactSynonym>cellular component assembly at cellular level</oboInOwl:hasExactSynonym>
         <rdfs:label>cellular component assembly</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/GO_0022610 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/GO_0022610">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/GO_0008150"/>
+        <obo:IAO_0000115>The attachment of a cell, organism or acellular structure to a substrate, another cell, organism or acellular structure.</obo:IAO_0000115>
+        <obo:IAO_0000116>The textual definition has been modified in IDO to encompass acellular structures.</obo:IAO_0000116>
+        <obo:IAO_0000412>http://purl.obolibrary.org/obo/go.owl</obo:IAO_0000412>
+        <rdfs:label>biological adhesion</rdfs:label>
     </owl:Class>
     
 
@@ -9387,7 +9516,7 @@ Might there be any motivation for relabeling this class as &apos;bacterial infec
     <!-- http://purl.obolibrary.org/obo/GO_0044406 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/GO_0044406">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/GO_0008150"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/GO_0022610"/>
         <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Attachment of a symbiont to its host via adhesion molecules, general stickiness etc., either directly or indirectly.</obo:IAO_0000115>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/go.owl"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">adhesion of symbiont to host</rdfs:label>
@@ -9704,6 +9833,17 @@ Might there be any motivation for relabeling this class as &apos;bacterial infec
         <obo:IAO_0000412>http://purl.obolibrary.org/obo/go.owl</obo:IAO_0000412>
         <rdfs:comment>Note that this term differs from &apos;cytokinesis ; GO:0000910&apos; in that cytokinesis does not include nuclear division.</rdfs:comment>
         <rdfs:label>cell division</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/GO_0052001 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/GO_0052001">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/GO_0044406"/>
+        <obo:IAO_0000115>Attachment of bacterial clusters to the surface of the host in a type IV pili dependent manner. The host is defined as the larger of the organisms involved in a symbiotic interaction. [database_cross_reference: GOC:ml]</obo:IAO_0000115>
+        <obo:IAO_0000412>http://purl.obolibrary.org/obo/go.owl</obo:IAO_0000412>
+        <rdfs:label>type IV pili-dependent localized adherence to host</rdfs:label>
     </owl:Class>
     
 
@@ -10740,6 +10880,7 @@ of this, different, term.</obo:IAO_0000116>
         <obo:IAO_0000116 xml:lang="en">2009-03-16: review of this term done during during the OBI workshop winter 2009 and the current definition was considered acceptable for use in OBI. If there is a need to modify this definition please notify OBI.</obo:IAO_0000116>
         <obo:IAO_0000117 xml:lang="en">PERSON: Alan Ruttenberg</obo:IAO_0000117>
         <obo:IAO_0000117 xml:lang="en">PERSON: Melanie Courtot</obo:IAO_0000117>
+        <obo:IAO_0000412>http://purl.obolibrary.org/obo/iao.owl</obo:IAO_0000412>
         <rdfs:label xml:lang="en">measurement unit label</rdfs:label>
     </owl:Class>
     
@@ -10778,6 +10919,7 @@ of this, different, term.</obo:IAO_0000116>
         <obo:IAO_0000117 xml:lang="en">GROUP: IAO</obo:IAO_0000117>
         <obo:IAO_0000232>9/22/11 BP: changed the rdfs:label for this class from &apos;label&apos; to &apos;datum label&apos; to convey that this class is not intended to cover all kinds of labels (stickers, radiolabels, etc.), and not even all kind of textual labels, but rather the kind of labels occuring in a datum. 
 </obo:IAO_0000232>
+        <obo:IAO_0000412>http://purl.obolibrary.org/obo/iao.owl</obo:IAO_0000412>
         <rdfs:label xml:lang="en">datum label</rdfs:label>
     </owl:Class>
     
@@ -10806,6 +10948,7 @@ JAR: A data item is an approximately justified approximately true approximate be
         <obo:IAO_0000117 xml:lang="en">PERSON: Chris Stoeckert</obo:IAO_0000117>
         <obo:IAO_0000117 xml:lang="en">PERSON: Jonathan Rees</obo:IAO_0000117>
         <obo:IAO_0000118 xml:lang="en">data</obo:IAO_0000118>
+        <obo:IAO_0000412>http://purl.obolibrary.org/obo/iao.owl</obo:IAO_0000412>
         <rdfs:label xml:lang="en">data item</rdfs:label>
     </owl:Class>
     
@@ -10872,6 +11015,7 @@ JAR: A data item is an approximately justified approximately true approximate be
         <obo:IAO_0000117 xml:lang="en">person:Chris Stoeckert</obo:IAO_0000117>
         <obo:IAO_0000119 xml:lang="en">OBI_0000305</obo:IAO_0000119>
         <obo:IAO_0000119 xml:lang="en">group:OBI</obo:IAO_0000119>
+        <obo:IAO_0000412>http://purl.obolibrary.org/obo/iao.owl</obo:IAO_0000412>
         <rdfs:label xml:lang="en">measurement datum</rdfs:label>
     </owl:Class>
     
@@ -10949,7 +11093,7 @@ JAR: A data item is an approximately justified approximately true approximate be
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
-                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OBI_0100026"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/IDO_0000528"/>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000054"/>
@@ -11549,6 +11693,32 @@ JAR: A data item is an approximately justified approximately true approximate be
     
 
 
+    <!-- http://purl.obolibrary.org/obo/IDO_0000433 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/IDO_0000433">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000016"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000054"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/GO_0022610"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CHEBI_23367"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115>Disposition borne by a macromolecule that is the disposition to participate in an adhesion process.</obo:IAO_0000115>
+        <obo:IAO_0000117>Shane Babcock</obo:IAO_0000117>
+        <obo:IAO_0000412>http://purl.obolibrary.org/obo/ido.owl</obo:IAO_0000412>
+        <rdfs:label>adhesion disposition</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/IDO_0000434 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/IDO_0000434">
@@ -11679,7 +11849,7 @@ JAR: A data item is an approximately justified approximately true approximate be
     <!-- http://purl.obolibrary.org/obo/IDO_0000437 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/IDO_0000437">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000016"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IDO_0000433"/>
         <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -11704,12 +11874,12 @@ JAR: A data item is an approximately justified approximately true approximate be
         <owl:disjointWith rdf:resource="http://purl.obolibrary.org/obo/IDO_0000619"/>
         <owl:disjointWith rdf:resource="http://purl.obolibrary.org/obo/IDO_0000655"/>
         <owl:disjointWith rdf:resource="http://purl.obolibrary.org/obo/OGMS_0000031"/>
-        <obo:IAO_0000115 xml:lang="en">Disposition borne by a macromolecule that is the disposition to participate in adherence to a host.</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">Disposition borne by a macromolecule part of a symbiont that is the disposition to participate in adherence to a host.</obo:IAO_0000115>
         <obo:IAO_0000117>Albert Goldfain</obo:IAO_0000117>
         <obo:IAO_0000117>Alexander Diehl</obo:IAO_0000117>
         <obo:IAO_0000117>Lindsay Cowell</obo:IAO_0000117>
         <obo:IAO_0000412>http://purl.obolibrary.org/obo/ido.owl</obo:IAO_0000412>
-        <rdfs:label xml:lang="en">adhesion disposition</rdfs:label>
+        <rdfs:label xml:lang="en">symbiont adhesion disposition</rdfs:label>
     </owl:Class>
     
 
@@ -11876,6 +12046,18 @@ JAR: A data item is an approximately justified approximately true approximate be
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000016"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000054"/>
+                                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/GO_0009403"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000054"/>
+                                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/IDO_0000625"/>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000054"/>
                         <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/IDO_0000626"/>
@@ -12128,7 +12310,7 @@ JAR: A data item is an approximately justified approximately true approximate be
                 <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/IDO_0000509"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <obo:IAO_0000115 xml:lang="en">Quality that inheres in a pathogen and is the liklihood that the infectious disposition will be realized upon exposure of a susceptible organism.</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">Quality that inheres in a pathogen and is the likelihood that the infectious disposition will be realized upon exposure of a susceptible organism.</obo:IAO_0000115>
         <obo:IAO_0000117>Albert Goldfain</obo:IAO_0000117>
         <obo:IAO_0000117>Alexander Diehl</obo:IAO_0000117>
         <obo:IAO_0000117>Lindsay Cowell</obo:IAO_0000117>
@@ -12146,7 +12328,7 @@ JAR: A data item is an approximately justified approximately true approximate be
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/IDO_0000596"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/IDO_0000528"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 xml:lang="en">Quality that inheres in a pathogen and is the degree to which realizations of the infectious disease caused by the pathogen become severe or fatal.</obo:IAO_0000115>
@@ -13064,12 +13246,6 @@ JAR: A data item is an approximately justified approximately true approximate be
                 <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/IDO_0001353"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000062"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/IDO_0001343"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <obo:IAO_0000115 xml:lang="en">One-dimensional temporal region during which a pathogen host bears a contagiousness disposition.</obo:IAO_0000115>
         <obo:IAO_0000117>Albert Goldfain</obo:IAO_0000117>
         <obo:IAO_0000117>Alexander Diehl</obo:IAO_0000117>
@@ -13745,7 +13921,7 @@ This should be pushed to an upper-level ontology.</obo:IAO_0000412>
                     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CHEBI_33839"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000091"/>
-                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/IDO_0000437"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/IDO_0000433"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -14269,7 +14445,7 @@ Originally, &apos;antibiotic&apos; was defined as &quot;A material entity bearin
             </owl:Class>
         </owl:equivalentClass>
         <owl:disjointWith rdf:resource="http://purl.obolibrary.org/obo/IDO_0000617"/>
-        <obo:IAO_0000115 xml:lang="en">Material entity part of an extended organism that has some pathogen as part, which participates in the formation of the material entity by infecting the organism.</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">Material entity that is part of an extended organism that has some pathogen as part, which participates in the formation of the material entity by invading tissues of the organism.</obo:IAO_0000115>
         <obo:IAO_0000117>Albert Goldfain</obo:IAO_0000117>
         <obo:IAO_0000117>Alexander Diehl</obo:IAO_0000117>
         <obo:IAO_0000117>Lindsay Cowell</obo:IAO_0000117>
@@ -14826,7 +15002,7 @@ Originally, &apos;antibiotic&apos; was defined as &quot;A material entity bearin
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
-                <owl:someValuesFrom rdf:resource="http://www.informatics.jax.org/vocab/gene_ontology/GO:0009405"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/GO_0009405"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 xml:lang="en">Process by which a disorder comes into existence.</obo:IAO_0000115>
@@ -14960,7 +15136,7 @@ Originally, &apos;antibiotic&apos; was defined as &quot;A material entity bearin
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="http://www.informatics.jax.org/vocab/gene_ontology/GO:0009405"/>
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/GO_0009405"/>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002297"/>
                                         <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/IDO_0000586"/>
@@ -15580,7 +15756,6 @@ Originally, &apos;antibiotic&apos; was defined as &quot;A material entity bearin
         <obo:IAO_0000117>Alex Diehl</obo:IAO_0000117>
         <obo:IAO_0000117>Lindsay Cowell</obo:IAO_0000117>
         <obo:IAO_0000412>http://purl.obolibrary.org/obo/ido.owl</obo:IAO_0000412>
-        <rdfs:label xml:lang="en">negative regulation of establishment of localization</rdfs:label>
         <rdfs:label xml:lang="en">pathologically immunosuppressed organism</rdfs:label>
     </owl:Class>
     
@@ -15942,7 +16117,7 @@ Originally, &apos;antibiotic&apos; was defined as &quot;A material entity bearin
         </rdfs:subClassOf>
         <obo:IAO_0000112 xml:lang="en">prions</obo:IAO_0000112>
         <obo:IAO_0000112 xml:lang="en">viruses</obo:IAO_0000112>
-        <obo:IAO_0000115>Object that is an arrangement of interrelated acellular parts forming a biological unit.</obo:IAO_0000115>
+        <obo:IAO_0000115>Object consisting of an arrangement of interrelated acellular parts forming an acellular biological unit that is able to initiate replication of the structure in a host.</obo:IAO_0000115>
         <obo:IAO_0000412>http://purl.obolibrary.org/obo/ido.owl</obo:IAO_0000412>
         <oboInOwl:term_editor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">John Beverley</oboInOwl:term_editor>
         <rdfs:label xml:lang="en">acellular structure</rdfs:label>
@@ -16216,11 +16391,23 @@ Originally, &apos;antibiotic&apos; was defined as &quot;A material entity bearin
     <!-- http://purl.obolibrary.org/obo/IDO_0001111 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/IDO_0001111">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FBdv_00005259"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IDO_0001112"/>
         <obo:IAO_0000115>Generative stage that is a temporal subdivision of a pathogen developmental process.</obo:IAO_0000115>
         <obo:IAO_0000412>http://purl.obolibrary.org/obo/ido.owl</obo:IAO_0000412>
         <oboInOwl:term_editor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">John Beverley</oboInOwl:term_editor>
         <rdfs:label xml:lang="en">pathogen generative stage</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/IDO_0001112 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/IDO_0001112">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+        <obo:IAO_0000115>Temporal subdivision of a developmental process.</obo:IAO_0000115>
+        <obo:IAO_0000117>John Beverley</obo:IAO_0000117>
+        <obo:IAO_0000412>http://purl.obolibrary.org/obo/ido.owl</obo:IAO_0000412>
+        <rdfs:label xml:lang="en">generative stage</rdfs:label>
     </owl:Class>
     
 
@@ -18475,6 +18662,7 @@ editor date: 2017-04-18
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/PATO_0001995"/>
         <obo:IAO_0000115>A quality inhering in a bearer by virtue of the bearer&apos;s dependence on oxygen.</obo:IAO_0000115>
         <obo:IAO_0000412>http://purl.obolibrary.org/obo/pato.owl</obo:IAO_0000412>
+        <rdfs:comment>This term is problematic. It seems to blur the distinction between aerobes more generally and obligate aerobes.</rdfs:comment>
         <rdfs:label>aerobic</rdfs:label>
     </owl:Class>
     
@@ -19240,7 +19428,7 @@ editor date: 2017-04-18
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_0000210">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000189"/>
-        <obo:IAO_0000115>A dimensionless count unit which a measure of viable bacterial numbers.</obo:IAO_0000115>
+        <obo:IAO_0000115>A dimensionless count unit which is a measure of viable bacterial numbers.</obo:IAO_0000115>
         <obo:IAO_0000412>http://purl.obolibrary.org/obo/uo.owl</obo:IAO_0000412>
         <oboInOwl:hasExactSynonym>CFU</oboInOwl:hasExactSynonym>
         <rdfs:label>colony forming unit</rdfs:label>
@@ -19544,23 +19732,6 @@ editor date: 2017-04-18
         <obo:IAO_0000412>http://snomed.info/sct/900000000000207008</obo:IAO_0000412>
         <rdfs:label>Bacterial bacteriophage typing</rdfs:label>
         <rdfs:seeAlso>http://phinvads.cdc.gov/vads/http:/phinvads.cdc.gov/vads/ViewCodeSystemConcept.action?oid=2.16.840.1.113883.6.96&amp;code=22642004</rdfs:seeAlso>
-    </owl:Class>
-    
-
-
-    <!-- http://www.informatics.jax.org/vocab/gene_ontology/GO:0009405 -->
-
-    <owl:Class rdf:about="http://www.informatics.jax.org/vocab/gene_ontology/GO:0009405">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
-        <obo:IAO_0000115>Process that generates the ability of a pathogen to induce disorder in an organism.</obo:IAO_0000115>
-        <obo:IAO_0000116>Process that is the realization of a pathogenic disposition inhering in an pathogen or pathogen population, having at least the proper process parts: (1) pathogen transmission, (2) establishment of localization in host, (3) process of establishing an infection, and (4) appearance of disorder.</obo:IAO_0000116>
-        <obo:IAO_0000116>Process that is the realization of a pathogenic disposition inhering in an pathogen or pathogen population, which in the most common case has at least all of the following proper process parts: (1) pathogen transmission, (2) establishment of localization in host, (3) process of establishing an infection, and (4) appearance of disorder. 
-
-Pathogenesis does not involve all of (1)-(4) in every case. For instance, in the case of various bacterial pathogens, pathogenesis occurs without (1)-(3) via the secretion of toxins which subsequently cause disorder in some organism.</obo:IAO_0000116>
-        <obo:IAO_0000412>http://purl.obolibrary.org/obo/go.owl</obo:IAO_0000412>
-        <oboInOwl:term_editor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">John Beverley</oboInOwl:term_editor>
-        <oboInOwl:term_editor>Shane Babcock</oboInOwl:term_editor>
-        <rdfs:label xml:lang="en">pathogenesis</rdfs:label>
     </owl:Class>
     
 
