@@ -12,7 +12,7 @@
      xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#">
     <owl:Ontology rdf:about="http://purl.obolibrary.org/obo/bido.owl">
-        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/bido/2021-6-1/bido.owl"/>
+        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/bido/2021-6-5/bido.owl"/>
         <protege:defaultLanguage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">en</protege:defaultLanguage>
         <dc:creator>Shane Babcock</dc:creator>
         <rdfs:comment>The Bacteria Infectious Disease Ontology (BIDO) is an extension of IDO that will serve as a reference ontology concerning bacterial pathogens. In turn it will serve as a hub for IDO extensions concerning specific bacterial infectious diseases. It mirrors the Virus Infectious Disease Ontology in that respect.
@@ -4700,8 +4700,9 @@ I did at one point define this class as &quot;Disorder caused by some bacterial 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CL_0000563">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CL_0000520"/>
         <obo:IAO_0000115>A rounded, inactive form that certain bacteria assume under conditions of extreme temperature, dryness, or lack of food. The bacterium develops a waterproof cell wall that protects it from being dried out or damaged. [database_cross_reference: GOC:tfm][database_cross_reference: ISBN:0618947256]</obo:IAO_0000115>
-        <obo:IAO_0000118>bacterial spore</obo:IAO_0000118>
         <obo:IAO_0000412>http://purl.obolibrary.org/obo/cl.owl</obo:IAO_0000412>
+        <oboInOwl:hasDbXref>BTO:0002779</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym>bacterial spore</oboInOwl:hasExactSynonym>
         <rdfs:label>endospore</rdfs:label>
     </owl:Class>
     
@@ -8152,6 +8153,56 @@ Pathogenesis does not involve all of (1)-(4) in every case. For instance, in the
     
 
 
+    <!-- http://purl.obolibrary.org/obo/GO_0030112 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/GO_0030112">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/GO_0030312"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000091"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/IDO_0000433"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115>A carbohydrate rich layer at the outermost periphery of a cell. [database_cross_reference: GOC:krc][database_cross_reference: ISBN:0815316208][database_cross_reference: GOC:mlg][database_cross_reference: PMID:28876829]</obo:IAO_0000115>
+        <obo:IAO_0000116>Note, that it is only asserted that glycolax bears an &apos;adhesion disposition&apos; because glycolax is a component of cells other than bacteria. The same applies to its subclasses.  -SB</obo:IAO_0000116>
+        <obo:IAO_0000412>http://purl.obolibrary.org/obo/go.owl</obo:IAO_0000412>
+        <oboInOwl:hasDbXref>Wikipedia:Glycocalyx</oboInOwl:hasDbXref>
+        <rdfs:label>glycocalyx</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/GO_0030114 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/GO_0030114">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/GO_0030112"/>
+        <obo:IAO_0000115>A slime layer is an easily removed, diffuse, unorganized layer of extracellular material that surrounds a cell. Specifically this consists mostly of exopolysaccharides, glycoproteins, and glycolipids. [database_cross_reference: GOC:mlg][database_cross_reference: Wikipedia:Slime_layer]</obo:IAO_0000115>
+        <obo:IAO_0000412>http://purl.obolibrary.org/obo/go.owl</obo:IAO_0000412>
+        <oboInOwl:hasDbXref>Wikipedia:Slime_layer</oboInOwl:hasDbXref>
+        <rdfs:comment>While this structure is found most commonly in bacteria, it is also found in Archaea as well: Wikipedia:Slime_layer</rdfs:comment>
+        <rdfs:label>slime layer</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/GO_0030115 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/GO_0030115">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/GO_0030312"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000091"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/BIDO_0000788"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115>A crystalline protein layer surrounding some bacteria. [database_cross_reference: GOC:mlg][database_cross_reference: ISBN:0815108893]</obo:IAO_0000115>
+        <obo:IAO_0000412>http://purl.obolibrary.org/obo/go.owl</obo:IAO_0000412>
+        <oboInOwl:hasDbXref>Wikipedia:S-layer</oboInOwl:hasDbXref>
+        <rdfs:label>S-layer</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/GO_0030152 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/GO_0030152">
@@ -8373,14 +8424,50 @@ Pathogenesis does not involve all of (1)-(4) in every case. For instance, in the
     
 
 
+    <!-- http://purl.obolibrary.org/obo/GO_0031469 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/GO_0031469">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/GO_0043232"/>
+        <obo:IAO_0000115>An organelle found in bacteria consisting of a proteinaceous coat containing metabolic enzymes whose purpose is the sequestration or concentration of metabolites and which has the appearance of a polygonal granule by electron microscopy. [database_cross_reference: GOC:js][database_cross_reference: PMID:10498708][database_cross_reference: PMID:11844753][database_cross_reference: PMID:12923081]</obo:IAO_0000115>
+        <obo:IAO_0000412>http://purl.obolibrary.org/obo/go.owl</obo:IAO_0000412>
+        <oboInOwl:hasBroadSynonym>BAC</oboInOwl:hasBroadSynonym>
+        <oboInOwl:hasExactSynonym>bacterial microcompartment</oboInOwl:hasExactSynonym>
+        <rdfs:label>polyhedral organelle</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/GO_0031470 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/GO_0031470">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/GO_0043232"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/GO_0031469"/>
         <obo:IAO_0000115>An organelle consisting of a proteinaceous coat and enzymes for the fixation of CO(2). It augments the concentration of CO(2) in the vicinity of RuBisCO to increase the efficiency of CO(2) fixation under atmospheric conditions. [database_cross_reference: GOC:js][database_cross_reference: PMID:8157606][database_cross_reference: PMID:8491708][database_cross_reference: PMID:28934381]</obo:IAO_0000115>
         <obo:IAO_0000233>https://github.com/geneontology/go-ontology/issues/19743</obo:IAO_0000233>
         <obo:IAO_0000412>http://purl.obolibrary.org/obo/go.owl</obo:IAO_0000412>
         <rdfs:label>carboxysome</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/GO_0031471 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/GO_0031471">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/GO_0031469"/>
+        <obo:IAO_0000115>An organelle found in bacteria consisting of a proteinaceous coat containing enzymes for the degradation of ethanolamine whose purpose is the protection of the rest of the cell from the toxic acetaldehyde product of the enzyme ethanolamine ammonia lyase. [database_cross_reference: GOC:js][database_cross_reference: PMID:11844753]</obo:IAO_0000115>
+        <obo:IAO_0000412>http://purl.obolibrary.org/obo/go.owl</obo:IAO_0000412>
+        <oboInOwl:hasRelatedSynonym>ethanolamine metabolosome</oboInOwl:hasRelatedSynonym>
+        <rdfs:label>ethanolamine degradation polyhedral organelle</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/GO_0031472 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/GO_0031472">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/GO_0031469"/>
+        <obo:IAO_0000115>An organelle found in bacteria consisting of a proteinaceous coat containing enzymes for the degradation of 1,2-propanediol whose purpose is the protection of the rest of the cell from the toxic propionaldehyde product of the enzyme diol dehydratase. [database_cross_reference: GOC:js][database_cross_reference: PMID:10498708][database_cross_reference: PMID:11844753][database_cross_reference: PMID:12923081]</obo:IAO_0000115>
+        <obo:IAO_0000412>http://purl.obolibrary.org/obo/go.owl</obo:IAO_0000412>
+        <rdfs:label>propanediol degradation polyhedral organelle</rdfs:label>
     </owl:Class>
     
 
@@ -8952,7 +9039,9 @@ Pathogenesis does not involve all of (1)-(4) in every case. For instance, in the
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/GO_0044409"/>
         <obo:IAO_0000115>The process in which a bacterium enters a host cell.</obo:IAO_0000115>
         <obo:IAO_0000412>http://purl.obolibrary.org/obo/go.owl</obo:IAO_0000412>
-        <rdfs:label>entry of bacterium into host</rdfs:label>
+        <oboInOwl:hasExactSynonym>bacterial entry into host cell</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>invasion of bacteria into host cell</oboInOwl:hasExactSynonym>
+        <rdfs:label>entry of bacterium into host cell</rdfs:label>
     </owl:Class>
     
 
@@ -9091,6 +9180,30 @@ Pathogenesis does not involve all of (1)-(4) in every case. For instance, in the
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/go.owl"/>
         <obo:OBI_9991118 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">antibody</obo:OBI_9991118>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">immunoglobulin complex, circulating</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/GO_0042603 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/GO_0042603">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/GO_0030112"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CHEBI_18154"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002215"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/GO_0050765"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115>A protective structure surrounding some fungi and bacteria, attached externally to the cell wall and composed primarily of polysaccharides. Capsules are highly organized structures that adhere strongly to cells and cannot be easily removed. Capsules play important roles in pathogenicity, preventing phagocytosis by other cells, adherance, and resistance to dessication. [database_cross_reference: GOC:mlg]</obo:IAO_0000115>
+        <obo:IAO_0000116>Add an axiom to the effect that this is the material basis for protective resistance? -SB</obo:IAO_0000116>
+        <obo:IAO_0000412>http://purl.obolibrary.org/obo/go.owl</obo:IAO_0000412>
+        <rdfs:label>capsule</rdfs:label>
     </owl:Class>
     
 
@@ -9749,6 +9862,27 @@ Pathogenesis does not involve all of (1)-(4) in every case. For instance, in the
     
 
 
+    <!-- http://purl.obolibrary.org/obo/GO_0050765 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/GO_0050765">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/GO_0065007"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002212"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/GO_0006909"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000412>Any process that stops, prevents, or reduces the frequency, rate or extent of phagocytosis. [database_cross_reference: GOC:ai]</obo:IAO_0000412>
+        <obo:IAO_0000412>http://purl.obolibrary.org/obo/go.owl</obo:IAO_0000412>
+        <oboInOwl:hasExactSynonym>down regulation of phagocytosis</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>down-regulation of phagocytosis</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>downregulation of phagocytosis</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasNarrowSynonym>inhibition of phagocytosis</oboInOwl:hasNarrowSynonym>
+        <rdfs:label>negative regulation of phagocytosis</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/GO_0050777 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/GO_0050777">
@@ -9916,6 +10050,39 @@ Pathogenesis does not involve all of (1)-(4) in every case. For instance, in the
         <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Process that modulates a measurable attribute of any biological process, quality or function.</obo:IAO_0000115>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/go.owl"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">biological regulation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/GO_0070701 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/GO_0070701">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/GO_0110165"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/GO_0005576"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115>An extracellular region part that consists of a protective layer of mucus secreted by epithelial cells lining tubular organs of the body such as the colon or secreted into fluids such as saliva. Mucus is a viscous slimy secretion consisting of mucins (i.e. highly glycosylated mucin proteins) and various inorganic salts dissolved in water, with suspended epithelial cells and leukocytes. [database_cross_reference: GOC:krc][database_cross_reference: GOC:mah][database_cross_reference: GOC:mm2][database_cross_reference: PMID:18806221][database_cross_reference: PMID:19432394][database_cross_reference: Wikipedia:Mucin]</obo:IAO_0000115>
+        <obo:IAO_0000412>http://purl.obolibrary.org/obo/go.owl</obo:IAO_0000412>
+        <oboInOwl:hasBroadSynonym>extracellular proteinaceous gel</oboInOwl:hasBroadSynonym>
+        <oboInOwl:hasExactSynonym>mucous</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>mucous layer</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>mucus</oboInOwl:hasExactSynonym>
+        <rdfs:comment>Musin proteins in the mucus layer have an important function in the defense against bacterial infection, as they can reduce attachment and biofilm formation.</rdfs:comment>
+        <rdfs:label>mucus layer</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/GO_0070702 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/GO_0070702">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/GO_0070701"/>
+        <obo:IAO_0000115>The inner of two mucus layers secreted by epithelial cells in the colon; the inner mucus layer is firmly attached to the epithelium, is densely packed with a compact stratified appearance and is devoid of bacteria. [database_cross_reference: GOC:mah][database_cross_reference: GOC:mm2][database_cross_reference: PMID:18806221][database_cross_reference: PMID:19432394]</obo:IAO_0000115>
+        <obo:IAO_0000412>http://purl.obolibrary.org/obo/go.owl</obo:IAO_0000412>
+        <rdfs:label>inner mucus layer</rdfs:label>
     </owl:Class>
     
 
@@ -10860,6 +11027,52 @@ Annotations</obo:IAO_0000115>
         <oboInOwl:hasNarrowSynonym>extracellular ribonucleoprotein complex</oboInOwl:hasNarrowSynonym>
         <oboInOwl:hasNarrowSynonym>intracellular ribonucleoprotein complex</oboInOwl:hasNarrowSynonym>
         <rdfs:label>ribonucleoprotein complex</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/GO_2000535 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/GO_2000535">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/GO_0065007"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002211"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/GO_0035635"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <obo:IAO_0000115>Any process that modulates the frequency, rate or extent of entry of bacterium into host cell. [database_cross_reference: GOC:obol]</obo:IAO_0000115>
+        <obo:IAO_0000412>http://purl.obolibrary.org/obo/go.owl</obo:IAO_0000412>
+        <oboInOwl:hasExactSynonym>regulation of bacterial entry into host cell</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>regulation of invasion of bacteria into host cell</oboInOwl:hasExactSynonym>
+        <rdfs:label>regulation of entry of bacterium into host cell</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/GO_2000536 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/GO_2000536">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/GO_2000535"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002212"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/GO_0035635"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <obo:IAO_0000115>Any process that stops, prevents or reduces the frequency, rate or extent of entry of bacterium into host cell. [database_cross_reference: GOC:obol]</obo:IAO_0000115>
+        <obo:IAO_0000412>http://purl.obolibrary.org/obo/go.owl</obo:IAO_0000412>
+        <oboInOwl:hasExactSynonym>negative regulation of bacterial entry into host cell</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>negative regulation of invasion of bacteria into host cell</oboInOwl:hasExactSynonym>
+        <rdfs:label>negative regulation of entry of bacterium into host cell</rdfs:label>
     </owl:Class>
     
 
@@ -16722,6 +16935,17 @@ Originally, &apos;antibiotic&apos; was defined as &quot;A material entity bearin
     
 
 
+    <!-- http://purl.obolibrary.org/obo/IDO_0001298 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/IDO_0001298">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/GO_0070701"/>
+        <obo:IAO_0000115>The outer of two mucus layers secreted by epithelial cells in the colon; the outer mucus layer is loosely packed and can be colonized by bacteria. [database_cross_reference: GOC:mah][database_cross_reference: GOC:mm2][database_cross_reference: PMID:18806221][database_cross_reference: PMID:19432394]</obo:IAO_0000115>
+        <obo:IAO_0000412>http://purl.obolibrary.org/obo/go.owl</obo:IAO_0000412>
+        <rdfs:label>outer mucus layer</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/IDO_0001343 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/IDO_0001343">
@@ -18398,6 +18622,72 @@ editor date: 2017-04-18
     
 
 
+    <!-- http://purl.obolibrary.org/obo/OMIT_0002801 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OMIT_0002801">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/PR_000036195"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/GO_0009279"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000412>http://purl.obolibrary.org/obo/omit.owl</obo:IAO_0000412>
+        <rdfs:label>bacterial outer membrane proteins</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OMIT_0018973 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OMIT_0018973">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OMIT_0002801"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_2"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000091"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/BIDO_0000788"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <obo:IAO_0000116>This imported term was given a new axiom that makes it an inferred subclass of &apos;bacterial adhesion factor&apos;. -SB</obo:IAO_0000116>
+        <obo:IAO_0000412>http://purl.obolibrary.org/obo/omit.owl</obo:IAO_0000412>
+        <rdfs:label>adhesins, bacterial</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OMIT_0022740 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OMIT_0022740">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OMIT_0002801"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_2"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000091"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/BIDO_0000788"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <obo:IAO_0000116>This imported term was given a new axiom that makes it an inferred subclass of &apos;bacterial adhesion factor&apos;. -SB</obo:IAO_0000116>
+        <obo:IAO_0000412>http://purl.obolibrary.org/obo/omit.owl</obo:IAO_0000412>
+        <rdfs:label>fimbriae proteins</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/OMP_0000000 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OMP_0000000">
@@ -19193,6 +19483,12 @@ editor date: 2017-04-18
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/PR_000036195">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/PR_000000001"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_2"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000115>A protein that is encoded in the genome of some Bacteria &lt;prokaryote&gt;.</obo:IAO_0000115>
         <obo:IAO_0000412>http://purl.obolibrary.org/obo/pr.owl</obo:IAO_0000412>
         <oboInOwl:hasExactSynonym>Bacteria &lt;prokaryote&gt; protein</oboInOwl:hasExactSynonym>
